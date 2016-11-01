@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'Soleil';
+    src: url(fonts/Soleil-Regular.otf);
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'Soleil';
+    src: url(fonts/Soleil-Bold.otf);
+    font-weight: bold;
+}
+@font-face {
+    font-family: 'Soleil';
+    src: url(fonts/Soleil-Light.otf);
+    font-weight: 100;
+}
+@font-face {
+    font-family: 'Soleil';
+    src: url(fonts/Soleil-SemiBold.otf);
+    font-weight: 500;
+}

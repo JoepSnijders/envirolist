@@ -1,5 +1,47 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Soleil', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2 {
+  font-family: 'Domaine Display', serif;
+  font-weight: 600;
+}
+h2 {
+  font-size: 30px;
+  line-height: 1.4em;
+  color: #444;
+}
+p {
+  font-size: 14px;
+  color: #444;
+  font-weight: 100;
+  line-height: 1.7em;
+}
+p.bold {
+  font-weight: bold;
+}
+p.bigger {
+  font-size: 16px;
+}
+p.sub {
+  margin-top: 0;
+  margin-top: -20px;
+}
+.btn {
+  font-size: 14px;
+  font-weight: bold;
+  padding: 14px 28px;
+  transition: 0.1s ease all;
+}
+.btn-transparent {
+  color: #444;
+  background-color: transparent;
+  border: 1px solid #E2E2E2;
+}
+.btn-transparent:hover {
+  background-color: #12D475;
+  border-color: #12D475;
+  color: white;
 }

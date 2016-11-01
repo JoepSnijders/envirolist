@@ -6,7 +6,7 @@ export function searchJobs(){
   return (dispatch, getState) => {
     dispatch(grabbingJobs());
     return axios({
-      url: API_URL,
+      url: API_URL + '/jobs',
       method: 'get',
     }).then(resp => {
       dispatch(addJobs({list: resp.data, error: false}));
@@ -17,14 +17,14 @@ export function searchJobs(){
 }
 export function grabbingJobs(){
   return {
-    type: types.ADD_JOBS,
+    type: types.GRABBING_JOBS,
     grabbing: true
   }
 }
-export function addJobs({spotify, error}) {
+export function addJobs({list, error}) {
   return {
     type: types.ADD_JOBS,
-    spotify,
+    list,
     grabbing: false,
   }
 }

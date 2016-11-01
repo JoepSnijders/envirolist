@@ -4,9 +4,9 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 import * as reducers from '../reducers';
-import './App.css';
-import Map from './Map';
-import NotFound from '../components/404';
+import HomePage from './pages/HomePage';
+import AddPage from './pages/AddPage';
+import NotFound from './pages/404';
 import Container from '../components/Container';
 
 const reducer = combineReducers(reducers);
@@ -19,12 +19,12 @@ class App extends Component {
         <Provider store={store}>
           <Router history={browserHistory}>
             <Route path="/" component={Container}>
-              <IndexRoute component={Map}/>
-              <Route path="add" component={Map}></Route>
-              <Route path="users" component={Map}>
-                <Route path="/user/:userId" component={Map}></Route>
+              <IndexRoute component={HomePage}/>
+              <Route path="add" component={AddPage} />
+              <Route path="users" component={HomePage}>
+                <Route path="/user/:userId" component={HomePage} />
               </Route>
-              <Route path="*" component={NotFound}></Route>
+              <Route path="*" component={NotFound} />
             </Route>
           </Router>
         </Provider>

@@ -1,7 +1,7 @@
 import * as types from '../constants/ActionTypes';
 
 const initialState = {
-  jobsList: {}
+  listings: []
 };
 
 export default function jobs(state = initialState, action) {
@@ -10,6 +10,10 @@ export default function jobs(state = initialState, action) {
       return Object.assign({}, state, {
         grabbing: action.grabbing,
         listings: action.list
+      })
+    case types.GRABBING_JOBS:
+      return Object.assign({}, state, {
+        grabbing: action.grabbing,
       })
     default:
       return state;

@@ -1,0 +1,20 @@
+.footer {
+  background-color: #333E44;
+  color: #fff;
+  height: 345px;
+  padding: 60px 0;
+}
+.footer p { color: #fff; }
+.footer h2 { color: #fff; }
+.footer .btn { color: #fff; border-color: #fff; }
+.footer__super-footer {
+  background-color: #2E383E;
+  height: 65px;
+  width: 100%;
+  text-align: right;
+}
+.footer__super-footer p {
+  color: #fff;
+  line-height: 65px;
+  margin-bottom: 0;
+}

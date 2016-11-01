@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as actionCreators from '../actions';
+import * as actionCreators from '../../actions';
+import HeaderBar from '../../components/HeaderBar';
 
-class Map extends Component {
+class AddPage extends Component {
   constructor(){
     super();
     this.search = this.search.bind(this);
@@ -16,9 +17,10 @@ class Map extends Component {
   render() {
     console.log(this.props);
     return (
-      <div>
+      <div className="homepage">
+        <HeaderBar />
         <div className="container">
-          <div onClick={this.search} className="btn btn-primary">Search Volunteer Work</div>
+          <p>Add Page</p>
         </div>
       </div>
     );
@@ -31,4 +33,4 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return { actions: bindActionCreators(actionCreators, dispatch) }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Map);
+export default connect(mapStateToProps, mapDispatchToProps)(AddPage);

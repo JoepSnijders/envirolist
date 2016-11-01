@@ -1,0 +1,97 @@
+.homepage__main {
+  position: relative;
+}
+.homepage__bg {
+  background-color: #F9F9F9;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transform: skewY(-5deg);
+  overflow: hidden;
+  margin-top: -70px;
+}
+.homepage__main__hero {
+  position: relative;
+  padding-top: 20%;
+  height: 650px;
+  width: 50%;
+}
+.homepage__main__hero__input {
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 4px;
+  border: 1px solid #DDD;
+  font-weight: 100;
+  margin-top: 30px;
+}
+.homepage__main__hero__submit {
+  width: 150px;
+  margin-left: -150px;
+  height: 45px;
+  border: none;
+  color: #fff;
+  background-color: #12D475;
+  font-weight: bold;
+  font-size: 16px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  cursor: pointer;
+  transition: 0.1s ease all;
+}
+.homepage__main__hero__submit:hover {
+  background-color: #16C770;
+}
+.homepage__introduction {
+  margin: 110px 0;
+}
+.homepage__introduction__text {
+  margin-top: 20px;
+  margin-right: 50px;
+}
+.homepage__introduction__image {
+  margin-top: -17%;
+}
+
+.homepage__companions {
+
+}
+.homepage__companions__inner {
+  margin-top: 5%;
+}
+.homepage__companions__inner__highlight {
+  margin: 5% 0;
+}
+.homepage__companions__bottom {
+  width: 100%;
+  height: 200px;
+  background-color: #eee;
+  margin-top: 50px;
+}
+.homepage__companions__bottom__item {
+  width: 25%;
+  height: 200px;
+  float: left;
+  background-size: cover;
+  position: relative;
+}
+.homepage__companions__bottom__item__title {
+  position: absolute;
+  bottom: -5px;
+  left: 15px;
+}
+.homepage__companions__bottom__item__title p {
+  color: #fff;
+  font-size: 14px;
+}
+.homepage__companions__bottom__item__title p.sub {
+  font-size: 12px;
+}
+.homepage__world {
+  margin-top: 100px;
+}
+.homepage__world__map {
+  height: 360px;
+  width: 100%;
+  background-color: #425159;
+  margin-top: 40px;
+}

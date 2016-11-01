@@ -14,16 +14,17 @@ app.use(bodyParser.urlencoded({ extended: false })); // Bodyparser to parse json
 app.use(bodyParser.json());
 app.use(morgan('dev')); // Log data transfers to console.
 app.use('/api/v1', router);
+// Allow CORS (Router Middleware)
+router.use(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  next();
+});
 
 // Import Routes
 var jobsRoute = require('./app/routes/jobs');
-
-// Allow CORS
-router.all('/', function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
-  next();
-});
 
 // Routes
 router.get('/jobs', jobsRoute.list);
