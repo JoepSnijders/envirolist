@@ -26,13 +26,10 @@ router.all('/', function(req, res, next) {
 });
 
 // Routes
-router.get('/', (req, res) => {
-  res.send('Hello World.');
-});
 router.get('/jobs', jobsRoute.list);
 router.get('/jobs/:id', jobsRoute.single);
 router.post('/jobs', jobsRoute.add);
-
+router.delete('/jobs/:id', jobsRoute.delete);
 
 app.listen(port, function () {
   console.log('Envirolist server up and running! URL: localhost:' + port + '/api/v1');

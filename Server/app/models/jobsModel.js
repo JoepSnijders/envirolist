@@ -5,9 +5,11 @@ var jobsSchema = new Schema({
   name: String,
   content: String,
   excerpt: String,
-  locationName: String,
-  locationLtd: Number,
-  locationLng: Number,
+  location: {
+    name: String,
+    ltd: Number,
+    lng: Number,
+  },
   fromUser: {
     type: Schema.Types.ObjectId,
     ref: 'User'

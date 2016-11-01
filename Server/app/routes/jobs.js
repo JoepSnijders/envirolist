@@ -3,26 +3,34 @@ var Job = require('../models/jobsModel');
 
 // GET: Jobs List
 exports.list = function(req, res){
-  res.send('List object');
+  var query = Job.find({});
+  query.exec((err, requests) => {
+    if (err) res.send(err);
+    res.json(requests);
+  });
 };
 
 // GET: Single Job
 exports.single = function(req, res){
   var id = req.params.id;
-  res.send('List object');
+  var query = Job.findById(id, (err, request) => {
+    if (err) res.send(err);
+    res.json(request);
+  });
 };
 
 // POST: Add Job
 exports.add = function(req, res){
   // TODO: Validate incoming data and store neatly.
-  console.log(req.body);
   var job = new Job({
     name: req.body.name,
     excerpt: req.body.excerpt,
     content: req.body.content,
-    locationName: req.body.locationName,
-    locationLtd: req.body.locationLtd,
-    locationLng: req.body.locationLng,
+    location: {
+      name: req.body.locationName,
+      ltd: req.body.locationLtd,
+      lng: req.body.locationLng
+    },
     fromUser: req.body.fromUser,
     dateAdded: Date.now(),
   });
@@ -31,6 +39,14 @@ exports.add = function(req, res){
     res.json({ reply: 'Job added!'});
   });
 };
+
 // PUT: Favourite Job
 
 // DEL: Delete Job
+exports.delete = function(req, res){
+  var id = req.params.id;
+  Job.find({ _id: id }).remove((err) => {
+    if (err) res.send(err);
+    res.send("Job "+ id + " has been removed.");
+  })
+};
