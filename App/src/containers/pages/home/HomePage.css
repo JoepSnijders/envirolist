@@ -128,3 +128,39 @@
   background-color: #425159;
   margin-top: 40px;
 }
+.homepage__world__map__latest {
+  position: absolute;
+  height: 360px;
+  width: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+.homepage__world__map__latest__inner {
+  background-color: #fff;
+  height: 360px;
+  padding: 10px 15px;
+  pointer-events: auto;
+}
+.homepage__world__map__latest__inner ul {
+  list-style: none;
+  padding-left: 0;
+}
+.homepage__world__map__latest__inner li {
+  border-bottom: 1px solid whitesmoke;
+  padding: 10px 0;
+  font-size: 12px;
+}
+.homepage__world__map__latest__inner li:first-child {
+  padding-top: 0;
+}
+.homepage__world__map__latest__inner li.none-found {
+  border: none;
+  color: #969696;
+  font-size: 12px;
+}
+.homepage__world__map__latest__inner__title {
+  font-weight: bold;
+}
+.homepage__world__map__latest__inner__ago {
+  color: #969696;
+}

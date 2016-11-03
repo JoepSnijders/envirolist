@@ -2,12 +2,15 @@ import * as types from '../constants/ActionTypes';
 import { API_URL } from '../constants/API';
 import axios from 'axios';
 
-export function searchJobs(){
+export function getJobs(numberOfRequests){
   return (dispatch, getState) => {
     dispatch(grabbingJobs());
     return axios({
       url: API_URL + '/jobs',
       method: 'get',
+      params: {
+        number: numberOfRequests
+      }
     }).then(resp => {
       dispatch(addJobs({list: resp.data, error: false}));
     }).catch(err =>{

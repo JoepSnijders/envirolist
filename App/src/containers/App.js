@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 import * as reducers from '../reducers';
-import HomePage from './pages/HomePage';
+import HomePage from './pages/home/HomePage';
 import AddPage from './pages/AddPage';
 import NotFound from './pages/404';
 import Container from '../components/Container';
