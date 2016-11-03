@@ -23,7 +23,8 @@ class HomePage extends Component {
   }
 
   componentDidMount(){
-    this.getLatest(5);
+    // Initialize load with latest 3 posts
+    this.getLatest(3);
   }
 
   render() {

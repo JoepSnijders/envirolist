@@ -3,7 +3,12 @@ var Job = require('../models/jobsModel');
 
 // GET: Jobs List
 exports.list = function(req, res){
-  var query = Job.find({});
+  // If number limit specified:
+  if (req.query.number){
+    var query = Job.find({}).sort('-dateAdded').limit(req.query.number);
+  } else { // No limit specified
+    var query = Job.find({}).sort('-dateAdded');
+  }
   query.exec((err, requests) => {
     if (err) res.send(err);
     res.json(requests);

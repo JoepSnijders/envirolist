@@ -1,9 +1,5 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/local/bin/node',
-1 verbose cli   '/usr/local/bin/npm',
-1 verbose cli   'run',
-1 verbose cli   'babel-node',
-1 verbose cli   'index.js' ]
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'start' ]
 2 info using npm@3.10.7
 3 info using node@v6.6.0
 4 verbose config Skipping project config: /Users/joepsnijders/.npmrc. (matches userconfig)
@@ -11,7 +7,7 @@
 5 verbose stack     at Error (native)
 6 verbose cwd /Users/joepsnijders/Projecten/Envirolist/Application
 7 error Darwin 16.1.0
-8 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "run" "babel-node" "index.js"
+8 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "start"
 9 error node v6.6.0
 10 error npm  v3.10.7
 11 error path /Users/joepsnijders/package.json
