@@ -2,33 +2,65 @@ import * as types from '../constants/ActionTypes';
 import { API_URL } from '../constants/API';
 import axios from 'axios';
 
-export function getJobs(numberOfRequests){
+export function fetchJobs(numberOfRequests){
   return (dispatch, getState) => {
-    dispatch(grabbingJobs());
+    // Grabbing Jobs
+    dispatch(grabbedJobs());
     return axios({
       url: API_URL + '/jobs',
       method: 'get',
       params: {
-        number: numberOfRequests
+        number: numberOfRequests // Number Limit Query
       }
     }).then(resp => {
-      dispatch(addJobs({list: resp.data, error: false}));
-    }).catch(err =>{
+      // Grab Success
+      dispatch(fetchedJobs(resp));
+    }).catch(err => {
+      // Grab Error
       console.log(err);
     });
   }
 }
-export function grabbingJobs(){
-  return {
-    type: types.GRABBING_JOBS,
-    grabbing: true
+export function addJob(data){
+  return(dispatch, getState) => {
+    // Dispatch Posting Job
+    return axios({
+      url: API_URL + '/jobs',
+      method: 'post',
+      data: {
+        activityName: data.activityName,
+        excerpt: data.excerpt,
+        description: data.description,
+        location: data.location,
+        tags: data.tags,
+        photo: data.photo
+      }
+    }).then(resp => {
+      // Post Success
+      console.log(resp);
+    }).catch(err => {
+      // Post Error
+    })
   }
 }
-export function addJobs({list, error}) {
+
+export function fetchedJobs(resp) {
   return {
-    type: types.ADD_JOBS,
-    list,
+    type: types.FETCH_JOBS,
+    list: resp.data,
     grabbing: false,
+    error: false,
+  }
+}
+export function grabbedJobs(resp) {
+  return {
+    type: types.GRABBING_JOBS,
+    grabbing: true,
+  }
+}
+export function addedJob(resp){
+  return {
+    type: types.ADD_JOB,
   }
 }
 export function deleteJobs(id) {

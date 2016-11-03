@@ -16,10 +16,10 @@ class HomePage extends Component {
 
   }
   search(value){
-    this.props.actions.getJobs();
+    this.props.actions.fetchJobs();
   }
   getLatest(numberOfRequests){
-    this.props.actions.getJobs(numberOfRequests);
+    this.props.actions.fetchJobs(numberOfRequests);
   }
 
   componentDidMount(){

@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as actionCreators from '../../../actions';
 
-class FormSection extends Component {
+export default class FormSection extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -19,18 +16,21 @@ class FormSection extends Component {
   }
   addJob(event){
     event.preventDefault();
-    console.log(this.state.activityName);
-    console.log(this.state.excerpt);
-    console.log(this.state.description);
-    console.log(this.state.location);
-    console.log(this.state.tags);
-    console.log(this.state.photo);
+    this.props.actions.addJob({
+      activityName: this.state.activityName,
+      excerpt: this.state.excerpt,
+      description: this.state.description,
+      location: this.state.location,
+      tags: this.state.tags,
+      photo: this.state.photo
+    });
   }
   updateInputValue(target, event){
     this.setState({[target]: event.target.value});
   }
 
   render() {
+    console.log(this.props);
     return (
       <form onSubmit={this.addJob}>
         <div className="form-group">
@@ -103,8 +103,3 @@ class FormSection extends Component {
     );
   }
 }
-
-function mapDispatchToProps(dispatch) {
-  return { actions: bindActionCreators(actionCreators, dispatch) }
-}
-export default connect(mapDispatchToProps)(FormSection);

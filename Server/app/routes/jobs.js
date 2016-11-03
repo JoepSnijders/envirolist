@@ -28,15 +28,17 @@ exports.single = function(req, res){
 exports.add = function(req, res){
   // TODO: Validate incoming data and store neatly.
   var job = new Job({
-    name: req.body.name,
+    name: req.body.activityName,
     excerpt: req.body.excerpt,
-    content: req.body.content,
+    content: req.body.description,
     location: {
-      name: req.body.locationName,
+      name: req.body.location,
       ltd: req.body.locationLtd,
       lng: req.body.locationLng
     },
     fromUser: req.body.fromUser,
+    photo: req.body.photo,
+    tags: req.body.tags,
     dateAdded: Date.now(),
   });
   job.save((err) => {

@@ -10,7 +10,9 @@ import SinglePageMain from '../../../components/SinglePageMain';
 import './AddPage.css';
 
 class AddPage extends Component {
+
   render() {
+    console.log(this.props);
     var beachImage = { backgroundImage: 'url("/images/big-beach.jpg")' }
     return (
       <div className="addpage">
@@ -28,7 +30,7 @@ class AddPage extends Component {
               </div>
             </div>
             <hr/>
-            <FormSection />
+            <FormSection actions={this.props.actions} />
             <div className="addpage__thanks">
               <hr/>
               <div className="row">

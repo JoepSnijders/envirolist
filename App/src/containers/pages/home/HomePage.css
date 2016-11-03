@@ -133,6 +133,7 @@
   height: 360px;
   width: 100%;
   z-index: 1;
+  border-top: 1px solid whitesmoke;
   pointer-events: none;
 }
 .homepage__world__map__latest__inner {

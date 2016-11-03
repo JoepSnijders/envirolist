@@ -31,7 +31,7 @@ export default class MapSection extends Component {
                             return (
                               <li key={listValue._id}>
                                 <div className="homepage__world__map__latest__inner__title">{listValue.name}</div>
-                                <div className="homepage__world__map__latest__inner__location">{}</div>
+                                <div className="homepage__world__map__latest__inner__location">{listValue.location.name}</div>
                                 <div className="homepage__world__map__latest__inner__ago">{moment(listValue.dateAdded).fromNow()}</div>
                               </li>
                             );
