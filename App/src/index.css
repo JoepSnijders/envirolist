@@ -4,6 +4,9 @@ body {
   font-family: 'Soleil', sans-serif;
   -webkit-font-smoothing: antialiased;
 }
+.singlepage {
+  padding-top: 65px; /* Correct for header height */
+}
 h1, h2 {
   font-family: 'Domaine Display', serif;
   font-weight: 600;
@@ -44,4 +47,14 @@ p.sub {
   background-color: #12D475;
   border-color: #12D475;
   color: white;
+}
+
+label {
+  font-size: 14px;
+  font-weight: bold;
+}
+.form-inline .btn {
+  height: 38px;
+  line-height: 13px;
+  margin-left: 10px;
 }

@@ -1,0 +1,22 @@
+.singlePageMain {
+  position: relative;
+}
+.singlePageMain__hero {
+  position: relative;
+  padding-top: 5%;
+  height: 250px;
+}
+.singlePageMain__hero h1 {
+  color: #fff;
+}
+.singlePageMain__bg {
+  background-color: #F9F9F9;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-size: cover;
+  background-position: center top;
+  transform: skewY(-2.5deg);
+  overflow: hidden;
+  margin-top: -100px;
+}
