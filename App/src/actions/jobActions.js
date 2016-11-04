@@ -22,6 +22,7 @@ export function fetchJobs(numberOfRequests){
   }
 }
 export function addJob(data){
+  console.log(data);
   return(dispatch, getState) => {
     // Dispatch Posting Job
     return axios({
@@ -32,6 +33,9 @@ export function addJob(data){
         excerpt: data.excerpt,
         description: data.description,
         location: data.location,
+        locationCountry: data.locationCountry,
+        locationLng: data.locationLng,
+        locationLat: data.locationLat,
         tags: data.tags,
         photo: data.photo
       }

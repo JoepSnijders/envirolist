@@ -33,7 +33,8 @@ exports.add = function(req, res){
     content: req.body.description,
     location: {
       name: req.body.location,
-      ltd: req.body.locationLtd,
+      country: req.body.locationCountry,
+      lat: req.body.locationLat,
       lng: req.body.locationLng
     },
     fromUser: req.body.fromUser,

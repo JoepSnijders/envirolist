@@ -7,7 +7,8 @@ var jobsSchema = new Schema({
   excerpt: String,
   location: {
     name: String,
-    ltd: Number,
+    country: String,
+    lat: Number,
     lng: Number,
   },
   fromUser: {

@@ -5,7 +5,6 @@ moment().format('YYYY MM DD');
 import Map from '../../../components/Map';
 
 export default class MapSection extends Component {
-
   render(){
     return (
       <div className="homepage__world">
@@ -31,7 +30,7 @@ export default class MapSection extends Component {
                             return (
                               <li key={listValue._id}>
                                 <div className="homepage__world__map__latest__inner__title">{listValue.name}</div>
-                                <div className="homepage__world__map__latest__inner__location">{listValue.location.name}</div>
+                                <div className="homepage__world__map__latest__inner__location">{listValue.location.name} - { listValue.location.country }</div>
                                 <div className="homepage__world__map__latest__inner__ago">{moment(listValue.dateAdded).fromNow()}</div>
                               </li>
                             );
@@ -47,7 +46,7 @@ export default class MapSection extends Component {
               </div>
             </div>
           </div>
-          <Map jobs={this.props.jobs} />
+          <Map markers={this.props.jobs} />
         </div>
       </div>
     );

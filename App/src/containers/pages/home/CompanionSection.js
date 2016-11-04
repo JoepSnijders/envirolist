@@ -34,6 +34,9 @@ export default class CompanionSection extends Component {
     }
     this.setActiveCompanion(this.state.activeCompanion + 1 );
   }
+  componentWillUnmount(){
+    clearInterval(this.companionInterval); // Clear Interval to avoid Memory Leak.
+  }
 
   render(){
     // Vars for inline background-images companions.

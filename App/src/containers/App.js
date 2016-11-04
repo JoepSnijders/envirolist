@@ -17,7 +17,7 @@ class App extends Component {
     return (
       <div className="App">
         <Provider store={store}>
-          <Router history={browserHistory}>
+          <Router history={browserHistory} onUpdate={() => window.scrollTo(0, 0)}>
             <Route path="/" component={Container}>
               <IndexRoute component={HomePage}/>
               <Route path="add" component={AddPage} />
