@@ -18,7 +18,7 @@ export default class Map extends Component {
   static defaultProps = {
     apiKey: 'AIzaSyCzZKfMu32zOoZINcmT-j5GOZe6NPHzX70',
     center: {lat: 9.7337782, lng: 100.0280685},
-    zoom: 2,
+    zoom: 0,
     markerCoords: {lat: 9.7337782, lng: 100.0280685}
   };
 
