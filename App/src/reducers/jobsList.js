@@ -9,7 +9,8 @@ export default function jobs(state = initialState, action) {
     case types.FETCH_JOBS:
       return Object.assign({}, state, {
         grabbing: action.grabbing,
-        listings: action.list
+        listings: action.list,
+        error: action.error
       })
     case types.GRABBING_JOBS:
       return Object.assign({}, state, {

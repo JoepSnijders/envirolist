@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {  } from 'react-router';
+import { Link } from 'react-router';
 import moment from 'moment';
 moment().format('YYYY MM DD');
 import Map from '../../../components/Map';
@@ -28,11 +28,13 @@ export default class MapSection extends Component {
                         (this.props.jobs.length) ?
                           this.props.jobs.map((listValue) => {
                             return (
-                              <li key={listValue._id}>
-                                <div className="homepage__world__map__latest__inner__title">{listValue.name}</div>
-                                <div className="homepage__world__map__latest__inner__location">{listValue.location.name} - { listValue.location.country }</div>
-                                <div className="homepage__world__map__latest__inner__ago">{moment(listValue.dateAdded).fromNow()}</div>
-                              </li>
+                              <Link key={listValue._id} to={"jobs/" + listValue._id}>
+                                <li>
+                                  <div className="homepage__world__map__latest__inner__title">{listValue.name}</div>
+                                  <div className="homepage__world__map__latest__inner__location">{listValue.location.name} - { listValue.location.country }</div>
+                                  <div className="homepage__world__map__latest__inner__ago">{moment(listValue.dateAdded).fromNow()}</div>
+                                </li>
+                              </Link>
                             );
                           })
                           :

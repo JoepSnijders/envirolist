@@ -23,6 +23,7 @@
   border: 1px solid #DDD;
   font-weight: 100;
   margin-top: 30px;
+  float: left;
 }
 .homepage__main__hero__submit {
   width: 150px;
@@ -37,6 +38,7 @@
   border-bottom-right-radius: 4px;
   cursor: pointer;
   transition: 0.1s ease all;
+  margin-top: 30px;
 }
 .homepage__main__hero__submit:hover {
   background-color: #16C770;
@@ -138,7 +140,7 @@
 }
 .homepage__world__map__latest__inner {
   background-color: #fff;
-  height: 360px;
+  height: 359px;
   padding: 10px 15px;
   pointer-events: auto;
 }
@@ -149,7 +151,11 @@
 .homepage__world__map__latest__inner li {
   border-bottom: 1px solid whitesmoke;
   padding: 10px 0;
+  margin-top: 10px;
   font-size: 12px;
+}
+.homepage__world__map__latest__inner li:hover {
+  border-bottom: 1px solid #D9D9D9;
 }
 .homepage__world__map__latest__inner li:first-child {
   padding-top: 0;

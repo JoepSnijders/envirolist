@@ -43,13 +43,9 @@ export default class FormSection extends Component {
     this.setState({[target]: event.target.value});
   }
   updateLocationValue(location, event){
-    console.log(location);
     var locationArray = location.address_components;
     var name = locationArray[0];
     var country = locationArray[locationArray.length - 1];
-    console.log(name.long_name);
-    console.log(country.long_name);
-
     this.setState({
       locationName: name.long_name,
       locationCountry: country.long_name,

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {  } from 'react-router';
 import './Footer.css';
 
+import LogInModal from '../containers/modals/LogInModal';
+
 export default class Footer extends Component {
   render(){
     return (
@@ -27,6 +29,7 @@ export default class Footer extends Component {
             </div>
           </div>
         </div>
+        <LogInModal />
       </div>
     );
   }

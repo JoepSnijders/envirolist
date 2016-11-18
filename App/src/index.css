@@ -48,6 +48,35 @@ p.sub {
   border-color: #12D475;
   color: white;
 }
+.btn-facebook {
+  height: 50px;
+  line-height: 25px;
+  color: #fff;
+  background-color: #3B5998;
+  border: 1px solid #3B5998;
+}
+.btn-google {
+  height: 50px;
+  line-height: 25px;
+  color: #444;
+  background-color: transparent;
+  border: 1px solid #E2E2E2;
+}
+.btn-google:hover {
+  background-color: #dd4b39;
+  border: 1px solid #dd4b39;
+  color: white;
+}
+
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
 
 label {
   font-size: 14px;

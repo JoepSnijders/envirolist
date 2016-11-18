@@ -1,0 +1,71 @@
+.searchpage {
+
+}
+.searchpage__window {
+  padding-top: 58px;
+}
+.searchpage__main {
+  width: 40%;
+  height: 95vh;
+  float: left;
+  background-color: white;
+  border-left: 1px solid #EAEAEA;
+  box-sizing: border-box;
+  overflow-x: scroll;
+}
+.searchpage__map {
+  width: 60%;
+  height: 95vh;
+  position: absolute;
+  right: 0;
+  background-color: #eee;
+}
+.searchpage__main__filter__dates {
+  margin: 15px 0 0 0;
+}
+.searchpage__main__filter__dates p {
+  margin-bottom: 2px;
+}
+.searchpage__main__filter__dates input {
+  width: 80%;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid #EAEAEA;
+  padding-left: 10px;
+  font-size: 14px;
+}
+.searchpage__main__filter__paid {
+  height: 60px;
+  background-color: #eee;
+  margin: 15px 0 0 0;
+}
+.searchpage__main__filter__tags {
+  height: 60px;
+  background-color: #EAEAEA;
+}
+.searchpage__main__number {
+  margin: 40px 10px 0 0;
+}
+.searchpage__main__results {
+
+}
+.searchpage__main__results__result {
+  margin-top: 20px;
+}
+.searchpage__main__results__result:hover {
+  border-color: #D9D9D9;
+}
+.searchpage__main__results__result__image {
+  background-color: #eee;
+  background-size: cover;
+  border-radius: 4px;
+  height: 55px;
+  width: 55px;
+  margin-bottom: 15px;
+}
+.searchpage__main__results__result p.bold {
+  margin-bottom: 0;
+}
+.searchpage__main__results__result {
+  border-bottom: 1px solid #EAEAEA;
+}

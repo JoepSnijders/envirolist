@@ -1,8 +1,30 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
+import Autocomplete from 'react-google-autocomplete';
 import './HeaderBar.css';
 
 export default class HeaderBar extends Component {
+  constructor(props){
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+    this.state = {
+      searchInput: ''
+    }
+  }
+  handleChange(event){
+    this.setState({
+      searchInput: event.target.value
+    });
+  }
+  updateLocationValue(location){
+    console.log(location);
+    this.setState({
+      searchInput: location.formatted_address,
+      locationLng: location.geometry.location.lng(),
+      locationLat: location.geometry.location.lat()
+    });
+    browserHistory.push('/search?lat=' + location.geometry.location.lat() + '&lng=' + location.geometry.location.lng() + '&location= ' + location.formatted_address + '&r=500');
+  }
   render(){
     return (
       <header className="header">
@@ -15,7 +37,17 @@ export default class HeaderBar extends Component {
             </div>
             <div className="col-md-4 col-sm-1 hidden-sm-down">
               <div className="header__search">
-                <input type="text" placeholder="Look for activities near.." />
+                <Autocomplete
+                    placeholder="Look for activities near.."
+                    type="text"
+                    value={this.state.searchInput}
+                    onChange={this.handleChange}
+                    onPlaceSelected={(location) => {
+                      this.updateLocationValue(location);
+                    }}
+                    types={['(regions)']}
+                />
+                {/* <input type="text" placeholder="Look for activities near.." /> */}
               </div>
             </div>
             <div className="col-md-6 col-sm-9 hidden-xs-down float-xs-right">
@@ -25,11 +57,11 @@ export default class HeaderBar extends Component {
                 </Link>
                 <li className="header__navi__item">Help</li>
                 <li className="header__navi__item">Sign Up</li>
-                <li className="header__navi__item">Log In</li>
+                <li className="header__navi__item" data-toggle="modal" data-target="#logInModal">Log In</li>
               </ul>
             </div>
           </div>
-          </div>
+        </div>
       </header>
     );
   }

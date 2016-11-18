@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actionCreators from '../../../actions';
 import { Link } from 'react-router';
+import Autocomplete from 'react-google-autocomplete';
 import './HomePage.css';
 import CompanionSection from './CompanionSection';
 import MapSection from './MapSection';
@@ -12,8 +13,25 @@ import Footer from '../../../components/Footer';
 class HomePage extends Component {
   constructor(props){
     super(props);
-    this.search = this.search.bind(this);
-
+    this.handleChange = this.handleChange.bind(this);
+    this.state = {
+      searchInput: '',
+      locationLng: '',
+      locationLat: ''
+    }
+  }
+  handleChange(event){
+    this.setState({
+      searchInput: event.target.value
+    });
+  }
+  updateLocationValue(location){
+    console.log(location);
+    this.setState({
+      searchInput: location.formatted_address,
+      locationLng: location.geometry.location.lng(),
+      locationLat: location.geometry.location.lat()
+    });
   }
   search(value){
     this.props.actions.fetchJobs();
@@ -21,7 +39,6 @@ class HomePage extends Component {
   getLatest(numberOfRequests){
     this.props.actions.fetchJobs(numberOfRequests);
   }
-
   componentDidMount(){
     // Initialize load with latest 3 posts
     this.getLatest(4);
@@ -29,7 +46,7 @@ class HomePage extends Component {
 
   render() {
     console.log(this.props);
-
+    console.log(this.context);
     return (
       <div className="homepage">
         <HeaderBar />
@@ -38,8 +55,21 @@ class HomePage extends Component {
           <div className="container">
             <div className="homepage__main__hero">
               <h1>Help the environment by volunteering anywhere.</h1>
-              <input className="homepage__main__hero__input" type="text" placeholder="I want to help the environment in.." />
-              <input onClick={() => this.search('value')} className="homepage__main__hero__submit" type="submit" value="Start looking" />
+              {/* <input value={this.state.searchInput} onChange={this.handleChange} className="homepage__main__hero__input" type="text" placeholder="I want to help the environment in.." /> */}
+              <Autocomplete
+                  placeholder="I want to help the environment in.."
+                  className="homepage__main__hero__input"
+                  type="text"
+                  value={this.state.searchInput}
+                  onChange={this.handleChange}
+                  onPlaceSelected={(location) => {
+                    this.updateLocationValue(location);
+                  }}
+                  types={['(regions)']}
+              />
+              <Link to={{ pathname: '/search', query:{ location: this.state.searchInput, r: 500, lng: this.state.locationLng, lat: this.state.locationLat} }}>
+                <input onClick={() => this.search('value')} className="homepage__main__hero__submit" type="submit" value="Explore map" />
+              </Link>
             </div>
           </div>
         </div>
@@ -62,7 +92,6 @@ class HomePage extends Component {
         </div>
         <CompanionSection />
         <MapSection jobs={this.props.jobs.listings} />
-
         <Footer />
       </div>
     );

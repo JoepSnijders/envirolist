@@ -14,10 +14,26 @@ export function fetchJobs(numberOfRequests){
       }
     }).then(resp => {
       // Grab Success
-      dispatch(fetchedJobs(resp));
+      dispatch(fetchJobsSuccess(resp));
     }).catch(err => {
       // Grab Error
       console.log(err);
+      dispatch(fetchJobsFailed());
+    });
+  }
+}
+export function fetchSingleJob(id){
+  return (dispatch, getState) => {
+    dispatch(grabbedJobs());
+    return axios({
+      url: API_URL + '/jobs/' + id,
+      method: 'get',
+      params: {}
+    }).then(resp => {
+      dispatch(fetchJobsSuccess(resp));
+    }).catch(err => {
+      console.log(err);
+      dispatch(fetchJobsFailed());
     });
   }
 }
@@ -48,12 +64,18 @@ export function addJob(data){
   }
 }
 
-export function fetchedJobs(resp) {
+export function fetchJobsSuccess(resp) {
   return {
     type: types.FETCH_JOBS,
     list: resp.data,
     grabbing: false,
     error: false,
+  }
+}
+export function fetchJobsFailed(resp) {
+  return {
+    type: types.FETCH_JOBS,
+    error: true
   }
 }
 export function grabbedJobs(resp) {
