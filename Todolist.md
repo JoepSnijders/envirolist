@@ -1,7 +1,9 @@
-- [ ] Search page.
-- [ ] Single job page.
-- [ ] Full screen map page.
 - [ ] Log in functionality.
 - [ ] Sign up functionality.
-- [ ] FormSection: Google places (lng lat);
-- [ ] Connect map markers to job lng lat.
+- [ ] Fetch jobs based on search location.
+
+- [x] Search page.
+- [x] Single job page.
+- [x] Full screen map page.
+- [x] FormSection: Google places (lng lat);
+- [x] Connect map markers to job lng lat.

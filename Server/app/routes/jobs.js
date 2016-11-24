@@ -10,7 +10,7 @@ exports.list = function(req, res){
     var query = Job.find({}).sort('-dateAdded');
   }
   query.exec((err, requests) => {
-    if (err) res.send(err);
+    if (err) res.status(500);
     res.json(requests);
   });
 };
@@ -19,7 +19,7 @@ exports.list = function(req, res){
 exports.single = function(req, res){
   var id = req.params.id;
   var query = Job.findById(id, (err, request) => {
-    if (err) res.send(err);
+    if (err) res.status(500);
     res.json(request);
   });
 };
@@ -43,7 +43,7 @@ exports.add = function(req, res){
     dateAdded: Date.now(),
   });
   job.save((err) => {
-    if (err) res.send(err);
+    if (err) res.status(500);
     res.json({ reply: 'Job added!'});
   });
 };
@@ -54,7 +54,7 @@ exports.add = function(req, res){
 exports.delete = function(req, res){
   var id = req.params.id;
   Job.find({ _id: id }).remove((err) => {
-    if (err) res.send(err);
-    res.send("Job "+ id + " has been removed.");
+    if (err) res.status(500);
+    res.send("Job " + id + " has been removed.");
   })
 };

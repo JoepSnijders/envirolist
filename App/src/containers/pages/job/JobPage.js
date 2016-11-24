@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { browserHistory } from 'react-router'
 import * as actionCreators from '../../../actions';
 import moment from 'moment';
 moment().format('YYYY MM DD');
@@ -58,7 +59,7 @@ class JobPage extends Component {
                 <div className="row">
                   <div className="col-sm-7">
                     <h2>This page could not be found.</h2>
-                    <p>Go back to your <a href="javascript:history.go(-1)">last visited page.</a></p>
+                    <p>Go back to your <a href="#" onClick={browserHistory.goBack}>last visited page.</a></p>
                     <br/>
                     <br/>
                   </div>

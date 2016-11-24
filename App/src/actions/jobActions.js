@@ -14,6 +14,7 @@ export function fetchJobs(numberOfRequests){
       }
     }).then(resp => {
       // Grab Success
+      console.log(resp);
       dispatch(fetchJobsSuccess(resp));
     }).catch(err => {
       // Grab Error
@@ -30,6 +31,7 @@ export function fetchSingleJob(id){
       method: 'get',
       params: {}
     }).then(resp => {
+      console.log(resp);
       dispatch(fetchJobsSuccess(resp));
     }).catch(err => {
       console.log(err);
