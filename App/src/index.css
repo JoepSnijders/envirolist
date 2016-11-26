@@ -7,6 +7,9 @@ body {
 .singlepage {
   padding-top: 65px; /* Correct for header height */
 }
+.singlepage.no-header {
+  padding-top: 160px;
+}
 h1, h2 {
   font-family: 'Domaine Display', serif;
   font-weight: 600;
@@ -29,8 +32,14 @@ p.bigger {
   font-size: 16px;
 }
 p.sub {
-  margin-top: 0;
   margin-top: -20px;
+}
+p.top {
+  margin-top: 0;
+  margin-bottom: 0px;
+}
+span.bold {
+  font-weight: bold;
 }
 .btn {
   font-size: 14px;

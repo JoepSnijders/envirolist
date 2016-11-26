@@ -25,7 +25,15 @@
   opacity: 1;
   transform: translateY(0px);
 }
-
+.pin.free {
+  background-color: #12D475;
+}
+.pin.fee {
+  background-color: #00A0F3;
+}
+.pin.paid {
+  background-color: #12C2D4;
+}
 .pulse {
   background: rgba(0,0,0,0.2);
   border-radius: 50%;
@@ -60,8 +68,10 @@
   top: -75px;
   left: -80px;
   opacity: 0;
+  z-index: 11;
   transition: ease .2s all;
   transform: translateY(-5px);
+  font-family: 'Soleil', 'Helvetica Neue', Helvetica;
 }
 .balloon p {
   margin: 0;

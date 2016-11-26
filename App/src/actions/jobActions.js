@@ -50,6 +50,7 @@ export function addJob(data){
         activityName: data.activityName,
         excerpt: data.excerpt,
         description: data.description,
+        type: data.type,
         location: data.location,
         locationCountry: data.locationCountry,
         locationLng: data.locationLng,

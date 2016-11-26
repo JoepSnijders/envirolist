@@ -1,4 +1,19 @@
-.addpage {}
+.addpage {
+
+}
+.addpage__choice {
+  margin: 20px 0;
+  border: 1px solid whitesmoke;
+}
+.addpage__choice__thumb {
+  height: 160px;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+}
+.addpage__choice__content {
+  padding: 30px 20px;
+}
 .addpage__thanks {
   margin: 10% 0;
 }

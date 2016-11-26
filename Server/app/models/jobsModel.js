@@ -15,6 +15,7 @@ var jobsSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'User'
   },
+  type: String, // free, paid or fee
   image: {
     data: Buffer,
     contentType: String

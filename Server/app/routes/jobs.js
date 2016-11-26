@@ -37,6 +37,7 @@ exports.add = function(req, res){
       lat: req.body.locationLat,
       lng: req.body.locationLng
     },
+    type: req.body.type,
     fromUser: req.body.fromUser,
     photo: req.body.photo,
     tags: req.body.tags,

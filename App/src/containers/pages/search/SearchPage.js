@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actionCreators from '../../../actions';
 import { Link } from 'react-router';
+import _ from 'lodash';
 import './SearchPage.css';
 import HeaderBar from '../../../components/HeaderBar';
 import Footer from '../../../components/Footer';
@@ -11,10 +12,23 @@ import SearchMap from './SearchMap';
 class SearchPage extends Component {
   constructor(props){
     super(props);
+    this.state = {
+      filteredJobs: null
+    }
     this.updateSearch = this.updateSearch.bind(this);
+    this.filterJobs = this.filterJobs.bind(this);
   }
   updateSearch(location, radius){
     this.props.actions.fetchJobs();
+  }
+  filterJobs(type){
+    console.log(type);
+    var jobs = this.props.jobs.listings;
+    jobs = _.filter(jobs, {'type': type});
+    console.log(jobs);
+    this.setState({
+      filteredJobs: jobs
+    });
   }
   componentDidMount(){
     this.updateSearch(this.props.location.query.location, this.props.location.query.r );
@@ -22,6 +36,7 @@ class SearchPage extends Component {
 
   render() {
     console.log(this.props.jobs.listings);
+    console.log(this.state);
     return (
       <div className="searchpage">
         <HeaderBar />
@@ -42,7 +57,11 @@ class SearchPage extends Component {
                   </div>
                 </div>
               </div>
-              <div className="searchpage__main__filter__paid"></div>
+              <div className="searchpage__main__filter__paid">
+                <span onClick={() => this.filterJobs('free volunteer')}>Free</span>
+                <span onClick={() => this.filterJobs('fee required')}>Fee</span>
+                <span onClick={() => this.filterJobs('paid')}>Paid</span>
+              </div>
               <div className="searchpage__main__filter__tags"></div>
               <div className="container-fluid">
                 <div className="row">
@@ -86,9 +105,8 @@ class SearchPage extends Component {
               </div>
             </div>
           </div>
-
           <div className="searchpage__map">
-            <SearchMap lat={this.props.location.query.lat} lng={this.props.location.query.lng} markers={this.props.jobs.listings} />
+            <SearchMap lat={this.props.location.query.lat} lng={this.props.location.query.lng} markers={this.state.filteredJobs ? this.state.filteredJobs : this.props.jobs.listings} />
           </div>
         </div>
         <div className="clearfix"></div>
