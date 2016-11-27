@@ -11,6 +11,10 @@ var jobsSchema = new Schema({
     lat: Number,
     lng: Number,
   },
+  loc: {
+    type: [Number],
+    index: "2d"
+  },
   fromUser: {
     type: Schema.Types.ObjectId,
     ref: 'User'
@@ -22,4 +26,5 @@ var jobsSchema = new Schema({
   },
   dateAdded: Date,
 });
+
 module.exports = mongoose.model('Jobs', jobsSchema);

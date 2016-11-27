@@ -46,8 +46,6 @@ export default class SearchMap extends Component {
     browserHistory.push('jobs/' + key);
   }
   onChange(e){
-    console.log('hiero');
-    console.log(this);
     var bounds = e.bounds;
     var center = e.center;
     var nw = bounds.nw;
