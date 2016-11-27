@@ -2,7 +2,7 @@ import * as types from '../constants/ActionTypes';
 import { API_URL } from '../constants/API';
 import axios from 'axios';
 
-export function fetchJobs(numberOfRequests){
+export function fetchJobs(numberOfRequests, center, radius){
   return (dispatch, getState) => {
     // Grabbing Jobs
     dispatch(grabbedJobs());
@@ -10,15 +10,16 @@ export function fetchJobs(numberOfRequests){
       url: API_URL + '/jobs',
       method: 'get',
       params: {
-        number: numberOfRequests // Number Limit Query
+        number: numberOfRequests ? numberOfRequests : null, // Number Limit Query
+        lat: center ? center.lat : null,
+        lng: center ? center.lng : null,
+        radius: radius ? radius : null
       }
     }).then(resp => {
       // Grab Success
-      console.log(resp);
       dispatch(fetchJobsSuccess(resp));
     }).catch(err => {
       // Grab Error
-      console.log(err);
       dispatch(fetchJobsFailed());
     });
   }

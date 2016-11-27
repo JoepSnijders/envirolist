@@ -20,28 +20,40 @@
   right: 0;
   background-color: #eee;
 }
-.searchpage__main__filter__dates {
-  margin: 15px 0 0 0;
-}
-.searchpage__main__filter__dates p {
-  margin-bottom: 2px;
-}
-.searchpage__main__filter__dates input {
-  width: 80%;
-  height: 40px;
-  border-radius: 4px;
-  border: 1px solid #EAEAEA;
-  padding-left: 10px;
-  font-size: 14px;
-}
 .searchpage__main__filter__paid {
   height: 60px;
-  background-color: #eee;
+  background-color: #333E44;
   margin: 15px 0 0 0;
+  padding: 10px 10px;
+}
+.searchpage__main__filter__paid__toggle {
+  border: 1px solid white;
+  padding: 10px 15px;
+  color: white;
+  margin-right: 10px;
+  display: inline-block;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 12px;
+  cursor: pointer;
+}
+.searchpage__main__filter__paid__toggle:hover {
+  border-color: #B6B6B6;
+}
+.searchpage__main__filter__paid__toggle.active {
+  background-color: #12D475;
+  border-color: #12D475;
 }
 .searchpage__main__filter__tags {
-  height: 60px;
-  background-color: #EAEAEA;
+  height: 40px;
+  background-color: white;
+  border-bottom: 1px solid #C9C9C9;
+  text-align: center;
+  padding-top: 10px;
+  cursor: pointer;
+}
+.searchpage__main__filter__tags:hover {
+  background-color: #F8F8F8;
 }
 .searchpage__main__number {
   margin: 40px 10px 0 0;
