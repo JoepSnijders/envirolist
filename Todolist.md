@@ -1,7 +1,15 @@
 - [ ] Log in functionality.
 - [ ] Sign up functionality.
-- [ ] Fetch jobs based on search location.
+- [ ] Re-check filter programming.
+- [ ] Homepage search: press enter and click on suggestion -> search();
+- [ ] Improve layout for single job page.
+- [ ] Filter on tags.
+- [ ] Logo Design.
+- [ ] Help Page.
+- [ ] Footer Design.
+- [ ] Why page (including video?).
 
+- [x] Fetch jobs based on search location.
 - [x] Search page.
 - [x] Single job page.
 - [x] Full screen map page.

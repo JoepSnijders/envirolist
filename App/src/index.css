@@ -6,6 +6,7 @@ body {
 }
 .singlepage {
   padding-top: 65px; /* Correct for header height */
+  padding-bottom: 80px;
 }
 .singlepage.no-header {
   padding-top: 160px;

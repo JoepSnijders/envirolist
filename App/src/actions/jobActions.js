@@ -1,8 +1,16 @@
 import * as types from '../constants/ActionTypes';
 import { API_URL } from '../constants/API';
 import axios from 'axios';
+import _ from 'lodash';
 
 export function fetchJobs(numberOfRequests, center, radius){
+  if (typeof numberOfRequests === 'undefined') {
+    numberOfRequests = null;
+  }
+  if (typeof center === 'undefined') {
+    center = null;
+    radius = null;
+  }
   return (dispatch, getState) => {
     // Grabbing Jobs
     dispatch(grabbedJobs());
@@ -16,10 +24,8 @@ export function fetchJobs(numberOfRequests, center, radius){
         radius: radius ? radius : null
       }
     }).then(resp => {
-      // Grab Success
       dispatch(fetchJobsSuccess(resp));
     }).catch(err => {
-      // Grab Error
       dispatch(fetchJobsFailed());
     });
   }
@@ -32,16 +38,13 @@ export function fetchSingleJob(id){
       method: 'get',
       params: {}
     }).then(resp => {
-      console.log(resp);
       dispatch(fetchJobsSuccess(resp));
     }).catch(err => {
-      console.log(err);
       dispatch(fetchJobsFailed());
     });
   }
 }
 export function addJob(data){
-  console.log(data);
   return(dispatch, getState) => {
     // Dispatch Posting Job
     return axios({

@@ -10,7 +10,7 @@ exports.list = function(req, res){
 
   // Search based on Location
   if (req.query.lng) {
-    console.log('Location found');
+    console.log('Location defined');
     query = Job.find({ // If number limit specified:
       loc: {
         $near: {
@@ -23,15 +23,15 @@ exports.list = function(req, res){
       }
     }).limit(req.query.number ? req.query.number : null);
     query.exec((err, requests) => {
-      if (err) console.log(err);
-      console.log(requests);
+      if (err) res.status(500);
       res.json(requests);
     });
   } else {
-    console.log('Location not found');
+    // Search NOT based on location
+    console.log('Location not defined');
     var query = Job.find({}).sort({ dateAdded: -1 }).limit(req.query.number ? req.query.number : null).exec((err, requests) => {
       if (err) res.status(500);
-      res.json(request);
+      res.json(requests);
     });
   }
 };
@@ -51,7 +51,6 @@ exports.add = function(req, res){
   var coords = [];
   coords[0] = req.body.locationLng;
   coords[1] = req.body.locationLat;
-
   var job = new Job({
     name: req.body.activityName,
     excerpt: req.body.excerpt,
