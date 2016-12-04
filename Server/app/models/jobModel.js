@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 var Schema = mongoose.Schema;
 
-var jobsSchema = new Schema({
+var jobSchema = new Schema({
   name: String,
   content: String,
   excerpt: String,
@@ -27,4 +27,4 @@ var jobsSchema = new Schema({
   dateAdded: Date,
 });
 
-module.exports = mongoose.model('Jobs', jobsSchema);
+module.exports = mongoose.model('Jobs', jobSchema);

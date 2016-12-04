@@ -46,11 +46,9 @@ class SearchPage extends Component {
   }
 
   render() {
-    console.log(this.props);
-    console.log(this.state);
     return (
       <div className="searchpage">
-        <HeaderBar />
+        <HeaderBar user={this.props.user} />
         <div className="container">
           <div className="searchpage__window">
             <div className="searchpage__main">
@@ -118,7 +116,7 @@ class SearchPage extends Component {
 }
 
 function mapStateToProps(state) {
-  return { jobs: state.jobslist }
+  return { jobs: state.jobslist, user: state.logInReducer }
 }
 function mapDispatchToProps(dispatch) {
   return { actions: bindActionCreators(actionCreators, dispatch) }

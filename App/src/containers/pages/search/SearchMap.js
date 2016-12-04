@@ -75,9 +75,7 @@ export default class SearchMap extends Component {
     } else {
       center = {lat: 9.7337782, lng: 100.0280685}; // Back to default position
     }
-    console.log(this.props);
     return (
-
         <GoogleMap
           bootstrapURLKeys={{key: this.props.apiKey}}
           center={center}

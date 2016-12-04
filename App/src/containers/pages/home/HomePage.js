@@ -26,7 +26,6 @@ class HomePage extends Component {
     });
   }
   updateLocationValue(location){
-    console.log(location);
     this.setState({
       searchInput: location.formatted_address,
       locationLng: location.geometry.location.lng(),
@@ -45,11 +44,9 @@ class HomePage extends Component {
   }
 
   render() {
-    console.log(this.props);
-    console.log(this.context);
     return (
       <div className="homepage">
-        <HeaderBar />
+        <HeaderBar user={this.props.user} />
         <div className="homepage__main">
           <div className="homepage__bg"></div>
           <div className="container">
@@ -99,7 +96,7 @@ class HomePage extends Component {
 }
 
 function mapStateToProps(state) {
-  return { jobs: state.jobslist }
+  return { jobs: state.jobslist , user: state.logInReducer}
 }
 function mapDispatchToProps(dispatch) {
   return { actions: bindActionCreators(actionCreators, dispatch) }

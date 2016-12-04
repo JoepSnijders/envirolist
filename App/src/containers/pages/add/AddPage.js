@@ -28,7 +28,6 @@ class AddPage extends Component {
 
   setType(type){
     window.scrollTo(0, 0);
-    console.log(type);
     this.setState({
       type: type,
       section: 1
@@ -36,13 +35,12 @@ class AddPage extends Component {
   }
 
   render() {
-    console.log(this.props);
     var volunteer = { backgroundImage: 'url("/images/volunteer.jpg")' }
     var paid = { backgroundImage: 'url("/images/paid.jpg")' }
     var fee = { backgroundImage: 'url("/images/fee.jpg")' }
     return (
       <div className="addpage">
-        <HeaderBar />
+        <HeaderBar user={this.props.user} />
         <div className="singlepage no-header">
           { this.state.section === 0 ?
             <div>
@@ -122,7 +120,7 @@ class AddPage extends Component {
 }
 
 function mapStateToProps(state) {
-  return { jobs: state.jobslist }
+  return { jobs: state.jobslist, user: state.logInReducer}
 }
 function mapDispatchToProps(dispatch) {
   return { actions: bindActionCreators(actionCreators, dispatch) }

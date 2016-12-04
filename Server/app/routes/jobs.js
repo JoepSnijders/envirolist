@@ -1,5 +1,5 @@
 // Import Model
-var Job = require('../models/jobsModel');
+var Job = require('../models/jobModel');
 
 // GET: Jobs List
 exports.list = function(req, res){

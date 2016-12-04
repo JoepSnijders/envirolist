@@ -3,6 +3,7 @@ import {  } from 'react-router';
 import './Footer.css';
 
 import LogInModal from '../containers/modals/LogInModal';
+import SignUpModal from '../containers/modals/SignUpModal';
 
 export default class Footer extends Component {
   render(){
@@ -29,6 +30,7 @@ export default class Footer extends Component {
             </div>
           </div>
         </div>
+        <SignUpModal />
         <LogInModal />
       </div>
     );

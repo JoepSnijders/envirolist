@@ -18,11 +18,10 @@ class JobPage extends Component {
     this.props.actions.fetchSingleJob(id);
   }
   render() {
-    console.log(this.props);
     var beachImage = { backgroundImage: 'url("/images/big-beach.jpg")' }
     return (
       <div className="jobpage">
-        <HeaderBar />
+        <HeaderBar user={this.props.user} />
           { !this.props.jobs.error ? // All is Ok
             <div className="singlepage">
               <SinglePageMain title={this.props.jobs.listings.name} image={beachImage} />
@@ -75,7 +74,7 @@ class JobPage extends Component {
 }
 
 function mapStateToProps(state) {
-  return { jobs: state.jobslist }
+  return { jobs: state.jobslist, user: state.logInReducer }
 }
 function mapDispatchToProps(dispatch) {
   return { actions: bindActionCreators(actionCreators, dispatch) }

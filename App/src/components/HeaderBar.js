@@ -17,7 +17,6 @@ export default class HeaderBar extends Component {
     });
   }
   updateLocationValue(location){
-    console.log(location);
     this.setState({
       searchInput: location.formatted_address,
       locationLng: location.geometry.location.lng(),
@@ -56,8 +55,17 @@ export default class HeaderBar extends Component {
                   <li className="header__navi__item">Add Activity</li>
                 </Link>
                 <li className="header__navi__item">Help</li>
-                <li className="header__navi__item">Sign Up</li>
-                <li className="header__navi__item" data-toggle="modal" data-target="#logInModal">Log In</li>
+                { this.props.user.user.length === 0 ?
+                  <span>
+                    <li className="header__navi__item" data-toggle="modal" data-target="#signUpModal">Sign Up</li>
+                    <li className="header__navi__item" data-toggle="modal" data-target="#logInModal">Log In</li>
+                  </span>
+                  :
+                  <span>
+                    <li className="header__navi__item">{this.props.user.user.name}</li>
+
+                  </span>
+                }
               </ul>
             </div>
           </div>

@@ -1,1 +1,2 @@
-export * from './jobsModel';
+export * from './jobModel';
+export * from './userModel';

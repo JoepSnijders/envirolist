@@ -3,6 +3,7 @@ import bodyParser from 'body-parser'
 import mongodb from 'mongodb';
 import mongoose from 'mongoose';
 import morgan from 'morgan';
+import passport from 'passport';
 import { MONGODB_URL } from './app/constants';
 
 mongoose.connect(MONGODB_URL); // Connect to DB.
@@ -23,14 +24,22 @@ router.use(function (req, res, next) {
   next();
 });
 
+// Initialize Passport
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Import Routes
 var jobsRoute = require('./app/routes/jobs');
+var loginRoute = require('./app/routes/login');
 
 // Routes
+// Jobs
 router.get('/jobs', jobsRoute.list);
 router.get('/jobs/:id', jobsRoute.single);
 router.post('/jobs', jobsRoute.add);
 router.delete('/jobs/:id', jobsRoute.delete);
+// Login
+router.post('/login/facebook', loginRoute.facebook);
 
 app.listen(port, function () {
   console.log('Envirolist server up and running! URL: localhost:' + port + '/api/v1');
